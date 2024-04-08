@@ -31,8 +31,7 @@ object collarDivino {
 	method extra(personaje) {
 		return if (personaje.poderBase() > 6) {
 			usos
-		} 
-		else {
+		} else {
 			0
 		}
 	}
@@ -46,7 +45,7 @@ object collarDivino {
 object armaduraDeAceroValyrio {
 
 	const poder = 6
-	
+
 	method poder(personaje) {
 		return poder
 	}
@@ -58,11 +57,41 @@ object armaduraDeAceroValyrio {
 
 object libroDeHechizos {
 
+	var property hechizos = []
+
 	method poder(personaje) {
+		return if (not hechizos.isEmpty()) hechizos.first().poder(personaje) else 0
 	}
 
 	method usar() {
+		if (not hechizos.isEmpty()) {
+			hechizos.remove(hechizos.first())
+		}
+	// hechizos = hechizos.drop(1) (a lo funcional)
 	}
 
+}
+
+// HECHIZOS 
+
+object bendicion {
+
+	method poder(personaje) {
+		return 4
+	}
+}
+
+object invisibilidad {
+
+	method poder(personaje) {
+		return personaje.poderBase()
+	}
+}
+
+object invocacion {
+
+	method poder(personaje) {
+		return personaje.poderInvocacion()
+	}
 }
 

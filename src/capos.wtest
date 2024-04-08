@@ -73,7 +73,9 @@ test "Saber la historia de los encuentros con los artefactos." {
 	assert.equals(collarDivino, rolando.historialDeArtefactos().get(4))
 }
 
+
 test "batalla" {
+	
 	rolando.capacidad(3)
 	rolando.poderBase(5)
 	rolando.encontrar(espadaDelDestino)
@@ -102,6 +104,24 @@ test "batalla" {
 }
 
 
-
+test "libro de hechizos" {
+	
+	rolando.poderBase(5)
+	rolando.encontrar(espadaDelDestino)
+	rolando.encontrar(collarDivino)
+	rolando.encontrar(armaduraDeAceroValyrio)
+	rolando.irAlHogar()
+	rolando.encontrar(libroDeHechizos)
+	libroDeHechizos.hechizos([bendicion, invisibilidad, invocacion])
+	assert.equals(4, libroDeHechizos.poder(rolando))
+	rolando.batalla()
+	assert.equals(6, libroDeHechizos.poder(rolando))
+	rolando.batalla()
+	assert.equals(7, libroDeHechizos.poder(rolando))
+	rolando.batalla()
+	assert.equals(0, libroDeHechizos.poder(rolando))
+	
+	
+}
 
 
