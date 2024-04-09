@@ -1,6 +1,7 @@
 import capos.*
 import artefactos.*
 import castillo.*
+import enemigos.*
 
 test "rolando encuentra la espada del destino y la 
 	agarra, encuentra el libro de hechizos y lo
@@ -122,6 +123,22 @@ test "libro de hechizos" {
 	assert.equals(0, libroDeHechizos.poder(rolando))
 	
 	
+}
+
+
+test "conquistables" {
+	rolando.poderBase(5)
+	rolando.capacidad(3)
+	rolando.encontrar(espadaDelDestino)
+	rolando.encontrar(collarDivino)
+	rolando.encontrar(armaduraDeAceroValyrio)
+	assert.equals(5, espadaDelDestino.poder(rolando))
+	assert.equals(6, armaduraDeAceroValyrio.poder(rolando))
+	assert.equals(3, collarDivino.poder(rolando))
+	assert.equals(19, rolando.poderPelea())
+	assert.equals(true, rolando.vencible(archibaldo))
+	assert.equals(true, rolando.vencible(astra))
+	assert.equals(#{palacioDeMarmol, torreDeMarfil} , erethia.hogaresConquistables(rolando))
 }
 
 

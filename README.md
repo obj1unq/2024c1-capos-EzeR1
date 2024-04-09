@@ -148,7 +148,7 @@ y su morada.
 
 #### Enemigos vencibles y Moradas Conquistables
 Los enemigos en Erethia que Rolando puede vencer son aquellos que tiene un poder de batalla menor al de rolando
-A su vez las moradas que roland podría conquistar son las moradas de los enemigos a los cuales puede vencer.
+A su vez las moradas que rolando podría conquistar son las moradas de los enemigos a los cuales puede vencer.
 
  
 Suponiendo que Rolando tiene 5 de base y capacidad de 3 artefactos. Entre sus artefactos 

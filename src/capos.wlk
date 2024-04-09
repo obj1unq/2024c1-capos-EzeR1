@@ -8,7 +8,7 @@ object rolando {
 	var hogar = castilloDePiedra
 	const property historialDeArtefactos = []
 	var property poderBase = 5
-	
+
 	method hogar(_hogar) {
 		hogar = _hogar
 	}
@@ -62,5 +62,32 @@ object rolando {
 		return hogar.poderInvocacion(self)
 	}
 
-}
+	method enemigosVencibles(tierra) {
+		return tierra.vencibles(self)
+	}
 
+	method vencible(enemigo) {
+		return enemigo.poderPelea() < self.poderPelea()
+	}
+
+	method tieneArmaFatal(enemigo) {
+		return artefactos.any({ artefacto => self.esFatal(artefacto, enemigo) })
+	}
+
+	method esFatal(artefacto, enemigo) {
+		return artefacto.poder(self) > enemigo.poderPelea()
+	}
+	
+	method armaFatal(enemigo) {
+		return artefactos.find({ artefacto => self.esFatal(artefacto, enemigo) })
+	}
+	
+//	method cantidadArmasFatales(enemigo) {
+//		return artefactos.count({ artefacto => self.esFatal(artefacto, enemigo) })
+//	}
+	
+//	method todasArmasFatales(enemigo) {
+//		return artefactos.filter({ artefacto => self.esFatal(artefacto, enemigo) })
+//	}
+	
+}
